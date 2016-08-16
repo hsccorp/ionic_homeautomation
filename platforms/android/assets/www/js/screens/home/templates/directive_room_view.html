@@ -1,0 +1,13 @@
+<div>
+
+         <span ng-repeat="roomdata in rooms"
+
+
+               style="float: left;
+	width: 50%;">
+           <a style="text-decoration:none;" href="#/menu/rooms/{{roomdata.roomid}}/{{roomdata.floorid}}/{{roomdata.roomname}}">
+               <div class ="card" style="height:80px;border:1px solid black;"><center style="line-height:80px;font-size:150%">
+                {{ roomdata.roomname }}</center></div></a>
+         </span>
+
+</div>

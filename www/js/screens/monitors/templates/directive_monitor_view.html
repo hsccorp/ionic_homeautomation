@@ -1,0 +1,23 @@
+<div class="item" ng-style="{'background-color': monitorData.Monitor.Enabled=='1'?'white':'white'}">
+    <div>
+        <span class='item item-icon-left item-icon-right'>
+                            <i class="icon ion-videocamera"></i>
+                            <b>{{monitorData.Monitor.Name}}</b>
+                        </span>
+
+    </div>
+    <br/> <b>Monitor Id:</b> {{monitorData.Monitor.Id}}
+    <br/> <b>Status:</b> {{monitorData.Monitor.isRunningText}}
+    <br/>
+    <div ng-if="monitorData.Monitor.Enabled == '1'" style="text-align:center;">
+
+        <a class="button button-medium icon icon-left ion-ios-eye" style="background-color:{{monitorData.Monitor.color}};" ng-click="liveview(monitorData)" >Live View</a>
+
+    </div>
+
+    <div ng-if="monitorData.Monitor.Enabled != '1'" style="text-align:center;">
+        <a class="button button-medium icon icon-left ion-ios-eye" style="background-color:grey" ng-click="liveview(monitorData)" >Live View</a>
+    </div>
+
+
+</div>

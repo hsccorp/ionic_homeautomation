@@ -1,0 +1,11 @@
+<ion-view view-title="Events">
+
+  <ion-content>
+    <ion-item collection-repeat="event in events">
+
+      <event-view event-data="event" closeopen="closeIfOpen(event)" footage="openModal(event)"></event-view>
+
+    </ion-item>
+  </ion-content>
+</ion-view>
+

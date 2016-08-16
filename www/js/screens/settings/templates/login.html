@@ -1,0 +1,130 @@
+<ion-view view-title="Settings" cache-view="false">
+
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+        <button class="button button-icon button-clear ion-arrow-down-b" ng-click="serverActionSheet()"></button>
+        
+        
+        
+                <button data-badge="{{$root.alarmCount}}" class="animated infinite tada button button-icon button-clear ion-ios-bell notification-badge" ng-click="handleAlarms();" ng-if="$root.isAlarm"></button>
+    </ion-nav-buttons>
+    
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="saveItems()">Save</button>
+    </ion-nav-buttons>
+
+
+    <ion-content padding="true" >
+         <div class="item item-input-inset">
+                Server Name:&nbsp;
+                <label class="item-input-wrapper">
+                    <input type="text" placeholder="eg. My House" ng-model="loginData.serverName">
+                </label>
+        </div>
+        <div class="list list-inset">
+            <span style="color:rgb(100,100,100)">
+                <i class="ion-android-home" style="font-size:150%"></i>
+                ZoneMinder Settings for {{loginData.serverName || "(unknown)"}}
+            </span>
+            
+            <div class="item">
+            <ion-checkbox ng-model="check.isUseAuth">use ZM authentication</ion-checkbox>
+            
+            <div ng-if = "check.isUseAuth" >
+                
+                <label class="item item-input item-floating-label" >
+                    <span class="input-label">username</span>
+                    <input autocapitalize="none" autocomplete="off"
+                           autocorrect="off" type="text"
+                           placeholder="username"
+                           value="zmninja"
+
+                           ng-model="loginData.username">
+                </label>
+
+                <label class="item item-input item-floating-label" >
+                    <span class="input-label">password</span>
+                    <input type="text" placeholder="password" value="zmNinja$xc129"
+                           ng-model="loginData.password">
+                </label>
+            </div>
+                
+                </div>
+            <label class="item item-input item-floating-label" >
+                <span class="input-label">ZM portal url</span>
+                <input autocapitalize="none" autocomplete="off"
+                       autocorrect="off" type="text"
+                       placeholder="ZM portal url " value="https://demo.zoneminder.com/zm"
+                       ng-model="loginData.url" ng-keyup="portalKeypress($event)">
+            </label>
+            
+             <!--<button class="button button-small button-clear icon-left ion-wand" ng-click="detectCgi()">tap here to discover cgi-bin
+                </button>-->
+            
+            <label class="item item-input item-floating-label" >
+                
+             
+                    <!--<span style="float:right;margin-top:-7px;background-color:#6d0909;color:#fff;font-size:14px;opacity:0.7;width:90px;border-radius: 0px 0px 5px 5px;" on-tap="detectCgi();">&nbsp;&nbsp;&nbsp;<i class="ion-wand"></i>discover</span>-->
+                
+
+                <span class="input-label">path to cgi-bin</span>
+           
+                    <input autocapitalize="none" autocomplete="off"
+                           autocorrect="off" type="text"
+                           placeholder="eg. server.com/zm/cgi-bin"
+                           ng-model="loginData.streamingurl">
+               
+            </label>
+             
+               
+            
+            <label class="item item-input item-floating-label" >
+                <span class="input-label">ZM api url</span>
+                <input autocapitalize="none"
+                       autocomplete="off" autocorrect="off"
+                       type="text" placeholder="ZM api url"
+                       ng-model="loginData.apiurl">
+            </label>
+            
+            <a class="item item-icon-right" href="" ng-click="selectFallback()">
+                <i class="icon ion-ios-arrow-right">
+                </i>
+                Fallback configuration<p>{{loginData.fallbackConfiguration}}</p>
+            </a>     
+            
+            <a class="item item-icon-right" href="" ng-click="eventServerSettings()">
+                <i class="icon ion-ios-arrow-right">
+                </i>
+                Event Server 
+            </a>
+            
+            
+            <div ng-if="$root.platformOS != 'desktop'">
+                <label>
+
+                <ion-toggle ng-model="loginData.usePin" ng-change="pinPrompt();"
+                            ng-checked="{{loginData.usePin}}"
+                            toggle-class="toggle-calm">Password protect</ion-toggle>
+                </label>
+            </div>
+            
+            <label>
+            <ion-toggle ng-model="loginData.useSSL"
+                        ng-checked="{{loginData.useSSL}}"
+                        toggle-class="toggle-calm">Use SSL</ion-toggle>
+            </label>
+
+            <div ng-if="$root.platformOS != 'desktop'">
+             <label>
+            
+            <ion-toggle ng-model="loginData.keepAwake"
+                        ng-checked="{{loginData.keepAwake}}"
+                        toggle-class="toggle-calm">Keep display on<p>(When viewing footage)</p>
+            </ion-toggle>
+            </label>
+            </div>
+        </div>
+        
+
+    </ion-content>
+</ion-view>

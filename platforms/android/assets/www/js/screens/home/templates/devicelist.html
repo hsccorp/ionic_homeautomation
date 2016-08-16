@@ -1,0 +1,17 @@
+<ion-view view-title={{roomname}}>
+    <ion-content style="overflow-y:scroll;height:81%;">
+
+    <div >
+
+        <div class="list card" style="overflow-scroll:true;" collection-repeat="devicedata in devices">
+
+            <device-view device-data="devicedata" live-video="liveview(devicedata)"></device-view></div>
+
+        </div>
+
+</ion-content>
+    <button class="button button-block button-balanced" style="position:fixed;bottom:0px;width:100%" ng-click="addDevice()">
+        Add Device
+    </button>
+</div>
+</ion-view>

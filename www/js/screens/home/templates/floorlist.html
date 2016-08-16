@@ -1,0 +1,21 @@
+<ion-view view-title="My House" >
+  <ion-content >
+
+      <ion-list>
+          <ion-item class="item" collection-repeat="floordata in floors" href="#/menu/floors/{{floordata.floorid}}/{{floordata.floorname}}" on-hold="select(floordata)" ng-class="{active: isActive(floordata)}" >
+
+              <floor-view floor-data="floordata" ></floor-view>
+          </ion-item>
+      </ion-list>
+
+
+  </ion-content>
+
+    <button class="button button-block button-balanced"  style="position:fixed;bottom:0px;width:100%;" ng-click="addFloor()">
+        Add Floor
+    </button>
+
+	 
+	  
+</ion-footer-bar>
+</ion-view>
