@@ -7,7 +7,7 @@
 
 
 angular.module('hscontroller')
-.controller('EventModalCtrl', ['$scope', '$rootScope', 'zm', 'ZMDataModel', '$ionicSideMenuDelegate', '$timeout', '$interval', '$ionicModal', '$ionicLoading', '$http', '$state', '$stateParams', '$ionicHistory', '$ionicScrollDelegate', '$q', '$sce',  '$ionicPopup','carouselUtils', function ($scope, $rootScope, zm, ZMDataModel, $ionicSideMenuDelegate, $timeout, $interval, $ionicModal, $ionicLoading, $http, $state, $stateParams, $ionicHistory, $ionicScrollDelegate, $q, $sce,  $ionicPopup,carouselUtils) {
+.controller('EventModalCtrl', ['$scope', '$rootScope', 'zm', 'ZMDataModel', '$ionicSideMenuDelegate', '$timeout', '$interval', '$ionicModal', '$ionicLoading', '$http', '$state', '$stateParams', '$ionicHistory', '$ionicScrollDelegate', '$q', '$sce',  '$ionicPopup', function ($scope, $rootScope, zm, ZMDataModel, $ionicSideMenuDelegate, $timeout, $interval, $ionicModal, $ionicLoading, $http, $state, $stateParams, $ionicHistory, $ionicScrollDelegate, $q, $sce,  $ionicPopup) {
 
 
     // from parent scope
@@ -495,8 +495,8 @@ angular.module('hscontroller')
 
     function saveEventImageToPhone(onlyAlarms)
     {
-        var curState = carouselUtils.getStop();
-        carouselUtils.setStop(true);
+       // var curState = carouselUtils.getStop();
+       // carouselUtils.setStop(true);
 
         //console.log("Your index is  " + $scope.mycarousel.index);
         //console.log("Associated image is " + $scope.slides[$scope.mycarousel.index].img);
@@ -807,23 +807,23 @@ angular.module('hscontroller')
 
                     case "super":
                         $scope.eventSpeed = 20 / $scope.event.Event.Frames;
-                        carouselUtils.setDuration($scope.eventSpeed);
+                        //carouselUtils.setDuration($scope.eventSpeed);
                         break;
                     case "normal":
                         $scope.eventSpeed = $scope.event.Event.Length / $scope.event.Event.Frames;
                         //$scope.eventSpeed = 5;
-                        carouselUtils.setDuration($scope.eventSpeed);
+                       // carouselUtils.setDuration($scope.eventSpeed);
 
                         break;
                     case "faster":
                         $scope.eventSpeed = $scope.eventSpeed / 2;
                         if ($scope.eventSpeed < 20 / $scope.event.Event.Frames)
                             $scope.eventSpeed = 10 / $scope.event.Event.Frames;
-                        carouselUtils.setDuration($scope.eventSpeed);
+                       // carouselUtils.setDuration($scope.eventSpeed);
                         break;
                     case "slower":
                         $scope.eventSpeed = $scope.eventSpeed * 2;
-                        carouselUtils.setDuration($scope.eventSpeed);
+                       // carouselUtils.setDuration($scope.eventSpeed);
 
                         break;
                     default:
@@ -1014,7 +1014,7 @@ angular.module('hscontroller')
         function inWithNew() {
             element.removeClass(slidein);
             $scope.animationInProgress = false;
-            carouselUtils.setStop(false);
+            //carouselUtils.setStop(false);
         }
 
     }
@@ -1385,8 +1385,8 @@ angular.module('hscontroller')
             //
             $scope.mycarousel.index = parseInt($scope.ionRange.index) - 1;
 
-            if (carouselUtils.getStop() == true)
-                return;
+            //if (carouselUtils.getStop() == true)
+              //  return;
 
 
              //console.log ("***ION RANGE CHANGED TO " + $scope.mycarousel.index);
@@ -1405,14 +1405,14 @@ angular.module('hscontroller')
             if ($scope.event && $scope.ionRange.index == parseInt($scope.event.Event.Frames) - 1) {
                 if (!$scope.modal || $scope.modal.isShown() == false) {
                    // console.log("quick scrub playback over");
-                    carouselUtils.setStop(true);
+                   // carouselUtils.setStop(true);
                     $scope.ionRange.index = 0;
                     $scope.mycarousel.index = 1;
                 }
 
             }
-            if (carouselUtils.getStop() == true)
-                return;
+            //if (carouselUtils.getStop() == true)
+            //    return;
             $scope.ionRange.index = ($scope.mycarousel.index + 1).toString();
             // console.log ("***IONRANGE RANGE CHANGED TO " + $scope.ionRange.index);
 

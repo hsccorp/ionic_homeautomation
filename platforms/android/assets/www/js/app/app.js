@@ -5,10 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('hscontroller', [
-'ionic', 'controllers', 'angular-carousel'
-
-
-                        ])
+'ionic', 'controllers'])
 
 
 .run(function($ionicPlatform,$ionicSideMenuDelegate) {

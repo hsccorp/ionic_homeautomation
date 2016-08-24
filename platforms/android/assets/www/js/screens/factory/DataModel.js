@@ -28,7 +28,7 @@ angular.module('hscontroller')
 
      var serverGroupList={};
 
-     var loginData = {
+     var loginData1 = {
         'serverName':'192.168.1.218',
         'username': 'admin',
         'password': 'hsc123',
@@ -81,7 +81,7 @@ angular.module('hscontroller')
 
     };
 
-     var loginDatademo = {
+     var loginData = {
             'serverName':'Demo Server',
             'username': 'zmninja',
             'password': 'zmNinja$xc129',

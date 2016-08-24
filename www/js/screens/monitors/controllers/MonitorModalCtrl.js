@@ -6,7 +6,7 @@
 
 
 angular.module('hscontroller')
-.controller('MonitorModalCtrl', ['$scope', '$rootScope', 'zm', 'ZMDataModel', '$ionicSideMenuDelegate', '$timeout', '$interval', '$ionicModal', '$ionicLoading', '$http', '$state', '$stateParams', '$ionicHistory', '$ionicScrollDelegate', '$q', '$sce',  '$ionicPopup', 'SecuredPopups','carouselUtils', function ($scope, $rootScope, zm, ZMDataModel, $ionicSideMenuDelegate, $timeout, $interval, $ionicModal, $ionicLoading, $http, $state, $stateParams, $ionicHistory, $ionicScrollDelegate, $q, $sce,  $ionicPopup, SecuredPopups,carouselUtils) {
+.controller('MonitorModalCtrl', ['$scope', '$rootScope', 'zm', 'ZMDataModel', '$ionicSideMenuDelegate', '$timeout', '$interval', '$ionicModal', '$ionicLoading', '$http', '$state', '$stateParams', '$ionicHistory', '$ionicScrollDelegate', '$q', '$sce',  '$ionicPopup', 'SecuredPopups', function ($scope, $rootScope, zm, ZMDataModel, $ionicSideMenuDelegate, $timeout, $interval, $ionicModal, $ionicLoading, $http, $state, $stateParams, $ionicHistory, $ionicScrollDelegate, $q, $sce,  $ionicPopup, SecuredPopups) {
 
 
 
@@ -541,7 +541,7 @@ angular.module('hscontroller')
 
             ZMDataModel.zmLog("New image loaded in");
             var ld = ZMDataModel.getLogin();
-            carouselUtils.setStop(false);
+            //carouselUtils.setStop(false);
             if (ld.useNphZms == true) {
                 $scope.currentStreamMode = 'single';
                 ZMDataModel.zmLog("Setting timer to play nph-zms mode");
